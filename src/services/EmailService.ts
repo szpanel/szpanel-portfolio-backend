@@ -1,4 +1,3 @@
-import {google} from "googleapis";
 import {OAuth2Client} from "google-auth-library/build/src/auth/oauth2client";
 import {Transporter, createTransport} from "nodemailer";
 import {Options} from "nodemailer/lib/mailer";
@@ -11,7 +10,7 @@ export class EmailService {
     private oauth: OAuth2Client;
 
     constructor() {
-        this.oauth = new google.auth.OAuth2({
+        this.oauth = new OAuth2Client({
             clientId: process.env.OAUTH2_CLIENT_ID,
             clientSecret: process.env.OAUTH2_CLIENT_SECRET_KEY,
             redirectUri: EmailService.REDIRECT_URI,
